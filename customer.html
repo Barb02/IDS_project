@@ -17584,7 +17584,7 @@ weighted avg       0.90      0.70      0.77     14115
 <p>For F1, the best models were Random Forest, Neural Networks and the Ensemble, with a F1-Score of 0.32. This score is usually considered low, which means we could not achieve models which are great at balancing precision and recall. So although the recall is fairly good in those models, the precision is poor, which brings the F1 value down. However, comparing with the baseline model, these models more than doubled the F1, which represent a 113% increase.</p>
 </li>
 <li><p>Recall:</p>
-<p>The best recall was obtained by Bayesian Classifier (0.78), which is unexpected given its simplicity. However, other models also achieved similar values. A value of 0.78 is considered good and shows our model is only missing 0.22 false negatives, which means clients without insurance won't be greatly missed. The baseline had a recall of 0.48, so we improved it in 62.5%.</p>
+<p>The best recall was obtained by Bayesian Classifier (0.78), which is unexpected given its simplicity. However, other models also achieved similar values. A value of 0.78 is considered good and shows our model is only is missing 22% of the actual positives, which means clients without insurance won't be greatly missed. The baseline had a recall of 0.48, so we improved it in 62.5%.</p>
 </li>
 <li><p>AUC:</p>
 <p>Regarding AUC, the best models were the Neural Networks and the Ensemble, both with 0.73. This means the model has a 73% probability of correctly ranking a randomly chosen positive instance higher than a randomly chosen negative instance, that is, it is good at distinguishing between classes.</p>
