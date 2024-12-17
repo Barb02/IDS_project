@@ -14711,7 +14711,7 @@ memory usage: 8.3 MB
 <p>Since the dataset is highly unbalanced, we will compare the non-balanced and balanced dataset for each model. For balancing, we will use SMOTE (Synthetic Minority Oversampling Technique), which is a technique that genarates synthetic samples for the minority class.</p>
 <p>For the models which have hyper-paremeters that can be tuned, which is almost always the case, we tune them by using cross-validation.</p>
 <p>In order to obtain more reliable results, we create train-test splits of 0.8/0.2 for each model and peform cross-validation only in the training set for hyper-parameter tuning, so that the model is evaluated with data it has never "seen".</p>
-<h3 id="Note:"><strong>Note:</strong><a class="anchor-link" href="#Note:">¶</a></h3><p>Although we print all the metrics, for model comparison we will use F1 score, recall and AUC, since they are the metrics that best align with our buisness goal. Our goal is to predict who does not have insurance in order to target them in marketing efforts.</p>
+<h3 id="Note:"><strong>Note:</strong><a class="anchor-link" href="#Note:">¶</a></h3><p>Although we print all the metrics, for model comparison we will use F1 score, recall and AUC, since they are the metrics that best align with our business goal. Our goal is to predict who does not have insurance in order to target them in marketing efforts.</p>
 <p><strong>Why Recall instead of Precision:</strong></p>
 <p>A false negative would occur if the model predicts that a customer has health insurance when they actually do not. In this case, the customer would be missed for outreach efforts, and they wouldn’t be targeted for potential insurance enrollment.
 If a false positive happened, this would result at most in unnecessary marketing efforts, which aren't as costly as missing clients.</p>
@@ -14954,7 +14954,7 @@ weighted avg       0.83      0.50      0.60     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>As it expected, the plots show a very weak classifier, with very few true positives and a lot of false positives (for reference class = 0), almost equal distribution into 0 and 1 prediction for both actual values (646 x 666, 6422 x 6381), and a ROC curve with an AUC even lower than random guessing.</p>
+<p>As it expected, the plots show a very weak classifier, with very few true positives and a lot of false positives (for reference class = 0), almost equal distribution into 0 and 1 prediction for both actual values (672 x 640, 6433 x 6370), and a ROC curve with an AUC more or less the as random guessing.</p>
 </div>
 </div>
 </div>
@@ -15720,7 +15720,7 @@ weighted avg       0.90      0.69      0.75     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The first plot shows the best depth was 24, the last value tested, but since the curve is turning into a line, if we tested higher values the improvment wouldn't be significant. The second shows that after a certain point, both scores stabilize, suggesting that increasing the training set size further does not significantly improve the model's performance.</p>
+<p>The first plot shows the best depth was 24, the last value tested, but since the curve is turning into a line, if we tested higher values the improvement wouldn't be significant. The second shows that after a certain point, both scores stabilize, suggesting that increasing the training set size further does not significantly improve the model's performance.</p>
 </div>
 </div>
 </div>
@@ -16274,7 +16274,7 @@ weighted avg       0.89      0.75      0.80     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The results were similar as the stratified unbalanced, which indicate that balancing, for the first time up to now, did not improve model peformance. This could be due to Random forests being relatively robust to class imbalance since they create multiple decision trees trained on bootstrapped samples, and each tree considers only a subset of features. This randomness allows the model to learn patterns from minority classes even in imbalanced datasets.</p>
+<p>The results were similar as the stratified unbalanced, which indicate that balancing, for the first time up to now, did not improve model performance. This could be due to Random forests being relatively robust to class imbalance since they create multiple decision trees trained on bootstrapped samples, and each tree considers only a subset of features. This randomness allows the model to learn patterns from minority classes even in imbalanced datasets.</p>
 </div>
 </div>
 </div>
@@ -16503,7 +16503,7 @@ weighted avg       0.89      0.69      0.75     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Similar to what happened to the Random Forest models, in the XGBoost models the unbalanced peformed slightly better, probably beacuse of the same reasons, since both use boostrapping.</p>
+<p>Similar to what happened to the Random Forest models, in the XGBoost models the unbalanced performed slightly better, probably because of the same reasons, since both use boostrapping.</p>
 </div>
 </div>
 </div>
@@ -16796,7 +16796,7 @@ weighted avg       0.89      0.68      0.75     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Here, the results are decent, and we can see there not much of a difference between balanced and unbalanced models.</p>
+<p>Here, the results are decent, and we can see there's not much of a difference between balanced and unbalanced models.</p>
 </div>
 </div>
 </div>
@@ -17255,8 +17255,7 @@ weighted avg       0.90      0.71      0.77     14115
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Then, we define the meta-learner: the final estimator that combines the predictions of the base learners.
-The next step is to create the stacking ensemble, that uses predictions from the base learners as features to train the meta-learner.
-Then we train the stacking model and make predictions.</p>
+The next step is to create the stacking ensemble which we will train and use to make predictions.</p>
 </div>
 </div>
 </div>
@@ -17453,7 +17452,6 @@ For each model type, we are selecting the version (balanced or unbalanced) that 
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">base_learners</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">'bayesian_balanced'</span><span class="p">,</span> <span class="n">balanced_models</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
     <span class="p">(</span><span class="s1">'dt_unbalanced'</span><span class="p">,</span> <span class="n">unbalanced_models</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-    <span class="p">(</span><span class="s1">'svm_balanced'</span><span class="p">,</span> <span class="n">balanced_models</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
     <span class="p">(</span><span class="s1">'rf_unbalanced'</span><span class="p">,</span> <span class="n">unbalanced_models</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
     <span class="p">(</span><span class="s1">'svm_unbalanced'</span><span class="p">,</span> <span class="n">unbalanced_models</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
     <span class="p">(</span><span class="s1">'xg_unbalanced'</span><span class="p">,</span> <span class="n">unbalanced_models</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span>
@@ -17520,6 +17518,17 @@ weighted avg       0.90      0.70      0.77     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>As we can see, the best essemble is the one with best results and the balanced/unbalanced have pretty much the same values in the metrics</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Results">Results<a class="anchor-link" href="#Results">¶</a></h1>
 </div>
 </div>
@@ -17532,8 +17541,8 @@ weighted avg       0.90      0.70      0.77     14115
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Here we aggregate the results for each model used, both in the balanced and the unbalanced datasets:</p>
-<p>There are 3 tables: the first has results for the balanced dataset,the second for the unbalanced dataset and the lats one with results of the "best" ensemble, which was the ensemble created by combining both balanced and unbalanced models. For each one we have the results for both class 0 and 1, being class 0 the one we are more interested in.</p>
-<p>Now focusing only on the class 0, by using the darker green color we highlight the best results in each table for the metrics we are interested in, namely F1-Score, AUC and Recall. Similarly, in light green we highlight the best least important metrics in each table. When there is a tie, all of the highest peforming metrics are highlighted.</p>
+<p>There are 3 tables: the first has results for the balanced dataset, the second for the unbalanced dataset and the last one with results of the "best" ensemble, which was the ensemble created by combining both balanced and unbalanced models. For each one we have the results for both class 0 and 1, being class 0 the one we are more interested in.</p>
+<p>Now focusing only on the class 0, by using the darker green color, we highlight the best results in each table for the metrics we are interested in, namely F1-Score, AUC and Recall. Similarly, in light green we highlight the best least important metrics in each table. When there is a tie, all of the highest peforming metrics are highlighted.</p>
 </div>
 </div>
 </div>
@@ -17590,7 +17599,7 @@ weighted avg       0.90      0.70      0.77     14115
 <p>Regarding AUC, the best models were the Neural Networks and the Ensemble, both with 0.73. This means the model has a 73% probability of correctly ranking a randomly chosen positive instance higher than a randomly chosen negative instance, that is, it is good at distinguishing between classes.</p>
 </li>
 <li><p>Precision and Accuracy:</p>
-<p>For both of these metrics, the Random Forest peformed the best. If we wanted to compare using F1 as the primary metric and precision and accuracy as tiebraker criteria, we could say the Random Forest model was the best model overall for the balanced dataset.</p>
+<p>For both of these metrics, the Random Forest performed the best. If we wanted to compare using F1 as the primary metric and precision and accuracy as tiebraker criteria, we could say the Random Forest model was the best model overall for the balanced dataset.</p>
 </li>
 </ul>
 </li>
@@ -17606,7 +17615,7 @@ weighted avg       0.90      0.70      0.77     14115
 <p>Regarding AUC, the best models were the Neural Networks and the Ensemble, both with 0.74. Just 0.01 higher than the balanced version, again there is no big difference.</p>
 </li>
 <li><p>Precision and Accuracy:</p>
-<p>For both of these metrics, the Neutal Networks peformed the best. Since it does not have the best recall or F1, we cannot do much with this information.</p>
+<p>For both of these metrics, the Neural Networks performed the best. Since it does not have the best recall or F1, we cannot do much with this information.</p>
 </li>
 </ul>
 </li>
@@ -17634,7 +17643,18 @@ weighted avg       0.90      0.70      0.77     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>NOTE:</strong> Gven we tuned the hyperparameters using a F1 scorer, we obtained the best models for that metric. For that reason, it's possible the recall values could be higher if we tuned using a recall scorer. The same is also valid for the other metrics.</p>
+<p><strong>NOTE:</strong> Given we tuned the hyperparameters using a F1 scorer, we obtained the best models for that metric. For that reason, it's possible the recall values could be higher if we tuned using a recall scorer. The same is also valid for the other metrics.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>NOTE:</strong> The most plausible reason on why the balancing of the models didn't show much difference in the metrics, is because we use class_weight='balanced' when creating the models, which by itself is already helping on dealing with the really unbalanced data set we had on our hands. The one model we decided to train without using this was the Neural Networks and the difference between the balanced and the unbalanced metrics on this model is really big.</p>
 </div>
 </div>
 </div>
@@ -17764,7 +17784,7 @@ weighted avg       0.90      0.70      0.77     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Here we had code to save the model in pickle, which needs to be opened so we generate the predictions (changing the name opens different ensembles):</p>
+<p>Here we had code to load the model in pickle, which needs to happen so we generate the predictions (changing the name opens different models):</p>
 </div>
 </div>
 </div>
@@ -17791,7 +17811,7 @@ weighted avg       0.90      0.70      0.77     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now we generate the predictions for the choosen ensemble.</p>
+<p>Now we generate the predictions for the chosen ensemble.</p>
 </div>
 </div>
 </div>
@@ -17969,7 +17989,7 @@ weighted avg       0.90      0.70      0.77     14115
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now we count and print the number of predictions: those predicted to have health insurance ("TRUE") and those predicted not to have health insurance ("FALSE").</p>
+<p>We count and print the number of predictions: those predicted to have health insurance ("TRUE") and those predicted not to have health insurance ("FALSE") so we could have a better vision on how the model is predicting</p>
 </div>
 </div>
 </div>
